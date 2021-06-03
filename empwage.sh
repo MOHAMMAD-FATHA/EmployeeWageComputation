@@ -1,4 +1,5 @@
-arr=()
+declare -A EmpWage
+#arr=()
 echo " Welcome to EmployeeWage Computation Program on master branch"
 
 isFullTime=1
@@ -40,9 +41,23 @@ case $randomnumber in
 esac
 totalWage=$(($totalWage+( $wagePerHr*$empHr )))
 Day=$((Day+1))
-arr+=($totalWage)
+	for((i=1; i<=20; i++))
+	do
+		EmpWage[$i]=$totalWage
+	done
 done 
 
-echo ${arr[@]}
+
+#sort -k1,1 -n ${EmpWage[@]}
+
+#for((i=1; i<=${!EmpWage[@]}; i++))
+#do 
+for i in ${!EmpWage[@]}
+do
+	echo "Wage of Day $i is ${EmpWage[$i]}"
+done
+
+#echo ${EmpWage[@]}
 echo "Wage of Employee is:" $totalWage
+
 
