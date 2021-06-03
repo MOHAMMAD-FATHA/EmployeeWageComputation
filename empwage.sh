@@ -1,3 +1,5 @@
+EmployeeWage()
+{
 echo " Welcome to EmployeeWage Computation Program on master branch"
 
 isFullTime=1
@@ -41,3 +43,7 @@ totalWage=$(($totalWage+( $wagePerHr*$empHr )))
 Day=$((Day+1))
 done 
 echo "Daily Wage of Employee is:" $totalWage
+}
+
+EmployeeWage
+
