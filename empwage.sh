@@ -5,30 +5,35 @@ isPartTime=2
 wagePerHr=20
 empHr=0
 totalWage=0
+randomnumber=$((RANDOM%3))
+
+case $randomnumber in
+	$isFullTime)
+		echo "Employee is Present"
+		;;
+	$isPartTime)
+		echo "Employee is Part Time"
+		;;
+	*)
+		echo "Absent"
+		;;
+esac
 
 randomnumber=$((RANDOM%3))
-if [ $randomnumber -eq $isFullTime ]
-then 
-	echo "Employee is Present"
-elif [ $randomnumber -eq $isPartTime ]
-then 
-	echo "Employee is Part Time"
-else
-	echo "Absent"
-fi
+case $randomnumber in
+        $isFullTime)
+                echo "Employee is Present"
+		empHr=8
+                ;;
+        $isPartTime)
+                echo "Employee is Part Time"
+                 empHr=4
+		;;
+        *)
+                echo "Absent"
+                empHr=0
+		;;
+esac
 
-randomnumber=$((RANDOM%3))
-if [ $randomnumber -eq $isFullTime ]
-then 
-	echo "Employee is Full Time"
-	empHr=8
-elif [ $randomnummber -eq $isPartTime ]
-then
-	echo "Employee is Part Time"
-        empHr=4
-else
-	echo "Absent"
-	empHr=0
-fi
 totalWage=$(($wagePerHr*$empHr))
 echo "Daily Wage of Employee is:" $totalWage
