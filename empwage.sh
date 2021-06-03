@@ -7,7 +7,7 @@ empHr=0
 totalWage=0
 randomnumber=$((RANDOM%3))
 Day=0
-
+hour=0
 case $randomnumber in
 	$isFullTime)
 		echo "Employee is Present"
@@ -22,14 +22,16 @@ esac
 
 
 randomnumber=$((RANDOM%3))
-while [ $Day -le 20 ]
+while [ $Day -le 20 ] && [ $hour -le 100 ]
 do
 case $randomnumber in
         $isFullTime)
 		empHr=8
+		hour=$((hour+8))
                 ;;
         $isPartTime)
-                 empHr=4
+                empHr=4
+		hour=$((hour+4))
 		;;
         *)
                 empHr=0
