@@ -1,5 +1,4 @@
-EmployeeWage()
-{
+arr=()
 echo " Welcome to EmployeeWage Computation Program on master branch"
 
 isFullTime=1
@@ -8,8 +7,8 @@ wagePerHr=20
 empHr=0
 totalWage=0
 randomnumber=$((RANDOM%3))
-Day=0
-hour=0
+Day=1
+hour=1
 case $randomnumber in
 	$isFullTime)
 		echo "Employee is Present"
@@ -41,9 +40,9 @@ case $randomnumber in
 esac
 totalWage=$(($totalWage+( $wagePerHr*$empHr )))
 Day=$((Day+1))
+arr+=($totalWage)
 done 
-echo "Daily Wage of Employee is:" $totalWage
-}
 
-EmployeeWage
+echo ${arr[@]}
+echo "Wage of Employee is:" $totalWage
 
